@@ -1,0 +1,86 @@
+#Initial imports for the sensor and screen use. 
+import board
+import busio
+import adafruit_ssd1306
+from digitalio import DigitalInOut
+from digitalio import Direction
+from digitalio import Pull
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
+
+#Initialize the i2c interface
+i2c = busio.I2C(board.SCL, board.SDA)
+
+#Create the SSD OLED object (width, height, interface)
+screen = adafruit_ssd1306.SSD1306_I2C(128, 64, i2c)
+
+#Input Pin initialization
+
+#Create button_A object on pin 5 
+button_A = DigitalInOut(board.D5)
+#Create direction and pull objects to detect a push
+button_A.direction = Direction_INPUT
+button_A.pull = Pull.UP
+
+button_B = DigitalInOut(board.D6)
+button_B.direction = Direction_INPUT
+button_B.pull = Pull.UP
+
+button_U = DigitalInOut(board.D17)
+button_U.direction = Direction_INPUT
+button_U.pull = Pull.UP
+
+button_D = DigitalInOut(board.D22)
+button_D.direction = Direction_INPUT
+button_D.pull = Pull.UP
+
+button_L = DigitalInOut(board.D27)
+button_L.direction = Direction_INPUT
+button_L.pull = Pull.UP
+
+button_R = DigitalInOut(board.D23)
+button_R.direction = Direction_INPUT
+button_R.pull = Pull.UP
+
+button_C = DigitalInOut(board.D4)
+button_C.direction = Direction_INPUT
+button_C.pull = Pull.UP
+
+#DISPLAY SETUP
+#Clear Display
+screen.fill(0)
+screen.show()
+
+#Create a blank image for drawing
+#Mode '1' for 1 bit color
+width = screen.width
+height = screen.height
+image = Image.new("1", (width, height))
+
+#Get drawing object to draw on imgage
+draw = ImageDraw.Draw(image)
+
+#Draw a black filled box to clear the image
+draw.rectangle((0, 0, width, height), outline = 0, fill = 0)
+
+#Draw some shapes
+#First define constants to allow easy resizing of shapes.
+padding = -2
+top = padding
+bottom = height - padding
+#Move left to right keeping track of the current x position for drawing shapes
+x = 0
+
+#Load default font
+font = ImageFont.loaddefault()
+
+
+while True:
+
+    #Draw a black filled box to clear the image
+    draw.rectangle((0, 0, width, height), outline = 0, fill = 0)
+
+
+    #Go time :-)
+    draw.text((x, top + 0), "HELLO", font = font, fill = 255
