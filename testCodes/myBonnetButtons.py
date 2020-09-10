@@ -72,8 +72,8 @@ x = 0
 
 while True:
     
-   sensorTemp = sensor.temperature
-   sensorRh = sensor.relative_humidity
+    sensorTemp = sensor.temperature
+    sensorRh = sensor.relative_humidity
 
 
     if button_U.value:  # button is released
@@ -105,7 +105,7 @@ while True:
         draw.ellipse((70, 40, 90, 60), outline=255, fill=0)  # A button
     else:  # button is pressed:
         draw.ellipse((70, 40, 90, 60), outline=255, fill=1)  # A button filled
-
+   
     if button_B.value:  # button is released
         draw.ellipse((100, 20, 120, 40), outline=255, fill=0)  # B button
     else:  # button is pressed:
