@@ -84,3 +84,8 @@ while True:
 
     #Go time :-)
     draw.text((x, top + 0), "HELLO", font = font, fill = 255
+    
+    screen.image(image)
+    screen.show()
+    time.sleep(0.1)
+
