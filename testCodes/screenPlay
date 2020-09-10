@@ -1,7 +1,11 @@
 #Initial imports for the sensor and screen use. 
+import time
+import subprocess
 import board
 import busio
 import adafruit_ssd1306
+from board import SDA
+from board import SCL
 from digitalio import DigitalInOut
 from digitalio import Direction
 from digitalio import Pull
@@ -10,10 +14,13 @@ from PIL import ImageDraw
 from PIL import ImageFont
 
 #Initialize the i2c interface
-i2c = busio.I2C(board.SCL, board.SDA)
+i2c = busio.I2C(SCL, SDA)
 
 #Create the SSD OLED object (width, height, interface)
 disp = adafruit_ssd1306.SSD1306_I2C(128, 64, i2c)
+
+disp.fill(0)
+disp.show()
 
 #Input Pin initialization
 
