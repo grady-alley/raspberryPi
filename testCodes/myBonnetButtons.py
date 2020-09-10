@@ -109,7 +109,7 @@ while True:
     if button_B.value:  # button is released
         draw.ellipse((100, 20, 120, 40), outline=255, fill=0)  # B button
     else:  # button is pressed:
-        draw.ellipse((100, 20, 120, 40), outline=255, fill=1)  # B button filled
+        draw.ellipse((100, 20, 120, 40), outline=255, fill=0)  # B button filled
 	draw.text((100, 30), "Fuck you", font = font, fill = 255)
 
     if not button_A.value and not button_B.value and not button_C.value:
